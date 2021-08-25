@@ -1,5 +1,8 @@
 const name = document.querySelector('.name')
 const image = document.querySelector('.image')
+const day = document.querySelector('.day')
+const job = document.querySelector('.job')
+const address = document.querySelector('.address')
 const submit = document.querySelector('.submit')
 const container = document.querySelector('.card-result')
 
@@ -41,7 +44,10 @@ submit.addEventListener('click' , e =>{
                     ...base,
                 {
                     name:name.value,
-                    image:image.value
+                    image:image.value,
+                    day:day.value,
+                    job:job.value,
+                    address:address.value
                 }
             ]
         ))
@@ -49,18 +55,21 @@ submit.addEventListener('click' , e =>{
 
     name.value = ''
     image.value = ''
-
+    day.value = ''
+    job.value = ''
+    address.value = ''
     window.location.reload()
 })
+
 
 
 function CardTemplate(name , image , id){
     return `
     <div class="card-person">
                     <div class="card-center">
-                    <i>${name}</i>
-
                         <img src="${image}">
+
+                        <i>${name}</i>
 
                         <div class="tools">
                             <i class="fa fa-user-edit" data-id="${id}" onclick="Edit(${id})"></i>
